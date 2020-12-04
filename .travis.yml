@@ -7,6 +7,7 @@ php:
     - 7.2
     - 7.3
     - 7.4
+    - 8.0
     - nightly
 
 matrix:
@@ -16,7 +17,7 @@ matrix:
 
 before_script:
   - |
-    if [[ $TRAVIS_PHP_VERSION == "nightly" ]]; then
+    if [[ $TRAVIS_PHP_VERSION == "nightly" || $TRAVIS_PHP_VERSION == "8.0" ]]; then
       travis_retry composer install --no-interaction --ignore-platform-reqs
     else
       travis_retry composer install --no-interaction
